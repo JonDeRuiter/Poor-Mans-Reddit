@@ -1,4 +1,4 @@
-﻿using API_Lab_Matt_Colville.Models;
+﻿
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -43,9 +43,10 @@ namespace API_Lab_Matt_Colville.Controllers
             ViewBag.data = redditJson["data"]["children"][0]["data"]["title"];
             ViewBag.image = redditJson["data"]["children"][0]["data"]["thumbnail"];
             ViewBag.source = redditJson["data"]["children"][0]["data"]["url"];
-            ViewBag.permalink = redditJson["data"]["children"][0]["data"]["permalink"];
-            
-            
+            string partial = redditJson["data"]["children"][0]["data"]["permalink"].ToString();
+            ViewBag.permalink = "http://www.reddit.com" + partial;
+
+
             return View();
         }
     }
